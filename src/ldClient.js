@@ -1,6 +1,6 @@
 import { initialize } from 'launchdarkly-react-client-sdk';
 
-const ldClient = initialize('65e717009460c60f8dce3457', {
+const ldClient = initialize('', {
   key: '',
   name: 'eleshmistry@gmail.com',
 });
