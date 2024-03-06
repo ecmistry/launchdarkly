@@ -14,8 +14,11 @@ Ensure you have the following installed on your Mac:
 
 ## Step 1: Clone the Repository
 * (Optional) - Create a playground directory on your mac.
-* Clone the GitHub repository to your local machine: git clone https://github.com/ecmistry/launchdarkly.git
-cd launchdarkly
+* Clone the GitHub repository to your local machine:
+
+    git clone https://github.com/ecmistry/launchdarkly.git
+
+    cd launchdarkly
 
 ## Step 2: Set Up the Python Environment
 Navigate to the project directory and set up a virtual environment:
