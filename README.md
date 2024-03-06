@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# LaunchDarkly React.js & Python Application Setup Guide
+This guide details the steps to set up and run a React.js application with a Python backend, demonstrating the use of the button-color-change feature flag from LaunchDarkly.
+The setup is designed for macOS.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Prerequisites
+Ensure you have the following installed on your Mac:
 
-In the project directory, you can run:
+* Node.js (v12.x or later) and npm (v6.x or later) - Download from nodejs.org.
+* Python (v3.6 or later): macOS comes with Python pre-installed, but you might need a more recent version. Visit python.org for the latest release.
+* Git: Install from git-scm.com.
+* A LaunchDarkly account: Sign up at https://launchdarkly.com/start-trial if you haven't already.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Step 1: Clone the Repository
+* (Optional) - Create a playground directory on your mac.
+* Clone the GitHub repository to your local machine: git clone https://github.com/ecmistry/launchdarkly.git
+cd launchdarkly
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Step 2: Set Up the Python Environment
+Navigate to the project directory and set up a virtual environment:
 
-### `npm test`
+    python3 -m venv venv
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Activate the virtual environment:
 
-### `npm run build`
+    source venv/bin/activate
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Step 3: Install Node Dependencies
+Install the necessary Node.js dependencies for the React.js application:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Step 4: Configure LaunchDarkly SDK
+Start your IDE from the project directory - “idea . &”
 
-### `npm run eject`
+Obtain Your LaunchDarkly SDK Key:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* Log into your LaunchDarkly dashboard.
+* Navigate to Account settings > Projects, and select your project.
+* Find your Client-side ID for the frontend and SDK key for the backend.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Configure SDK Keys in the **ldclient.js** file in the **src** directory
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+For the React.js application, locate where the LaunchDarkly client is initialized and replace your-client-side-id with your actual Client-side ID.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Step 5: Verify Feature Flag
+Ensure the button-color-change feature flag exists in your LaunchDarkly project:
 
-## Learn More
+Go to the Feature Flags tab in LaunchDarkly.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Create a button-color-change Feature Flag - with a Custom / Boolean Variation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Step 6: Run the React Application
+In the project directory, start the React.js application:
+npm start
 
-### Code Splitting
+This will open the application in your default web browser at http://localhost:3000.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+You will notice that if the Feature Flag in LaunchDarkly is Off the “Learn More” Button will be Blue
 
-### Analyzing the Bundle Size
+## Step 7: Test the Feature Flag
+Toggle the Feature Flag in Launch Darkly, and now returning to the React.js application in the browser it should change the Learn More Button Colour to green.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Troubleshooting
+In case there is an issue - go to the Developer Tools option in your browser and in the console you will see the “[LaunchDarkly] LaunchDarkly client initialized” message to know that you have authenticated successfully to LaunchDarkly
