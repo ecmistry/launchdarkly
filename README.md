@@ -41,7 +41,7 @@ Obtain Your LaunchDarkly SDK Key:
 
 * Log into your LaunchDarkly dashboard.
 * Navigate to Account settings > Projects, and select your project.
-* Find your Client-side ID for the frontend and SDK key for the backend.
+* Find your Client-side ID for the front end and SDK key for the back end.
 
 Configure SDK Keys in the **ldclient.js** file in the **src** directory
 
@@ -56,7 +56,8 @@ Create a button-color-change Feature Flag - with a Custom / Boolean Variation
 
 ## Step 6: Run the React Application
 In the project directory, start the React.js application:
-npm start
+
+    npm start
 
 This will open the application in your default web browser at http://localhost:3000.
 
